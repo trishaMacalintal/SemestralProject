@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COVID-19 Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Page Content -->
+    <div id="content">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <h4 class="mb-0">COVID-19 Dashboard</h4>
+          <div class="ms-auto d-flex align-items-center">
+            <div class="dropdown me-3">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="refreshDropdown" data-bs-toggle="dropdown">
+                <i class="fas fa-sync-alt me-1"></i> Refresh
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="refreshDropdown">
+                <li><a class="dropdown-item" href="#" id="refreshNow">Refresh Now</a></li>
+                <li><a class="dropdown-item" href="#" id="autoRefresh">Auto Refresh</a></li>
+              </ul>
+            </div>
+            <span class="text-muted">Last Updated: <span id="lastUpdated">Loading...</span></span>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Dashboard Content -->
+      <div class="container-fluid">
+        <!-- Summary Cards -->
+        <div class="row g-4 mb-4" id="overview">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card bg-primary text-white h-100">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-virus me-2"></i>Total Confirmed</h5>
+                <h2 id="totalConfirmed" class="mb-0">0</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card bg-danger text-white h-100">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-skull me-2"></i>Total Deaths</h5>
+                <h2 id="totalDeaths" class="mb-0">0</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card bg-success text-white h-100">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-heartbeat me-2"></i>Total Recovered</h5>
+                <h2 id="totalRecovered" class="mb-0">0</h2>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card bg-warning text-white h-100">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-procedures me-2"></i>Active Cases</h5>
+                <h2 id="totalActive" class="mb-0">0</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <div class="card h-100" id="lineChart">
+              <div class="card-body">
+                <h5 class="card-title">Global Trends</h5>
+                <div class="chart-container">
+                  <canvas id="chartLine"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="card h-100" id="barChart">
+              <div class="card-body">
+                <h5 class="card-title">Top Affected Countries</h5>
+                <div class="chart-container">
+                  <canvas id="chartBar"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="card h-100" id="pieChart">
+              <div class="card-body">
+                <h5 class="card-title">Regional Distribution</h5>
+                <div class="chart-container">
+                  <canvas id="chartPie"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="card h-100" id="radarChart">
+              <div class="card-body">
+                <h5 class="card-title">Recovery vs Death Rates</h5>
+                <div class="chart-container">
+                  <canvas id="chartRadar"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
